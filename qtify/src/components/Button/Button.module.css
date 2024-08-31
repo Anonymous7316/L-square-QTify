@@ -5,15 +5,8 @@
     height: 63%;
     padding: 10px 16px;
     background-color: var(--color-black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px;
     border-radius: 12px;
-    cursor: pointer;
-    left: 85.9%;
-  }
-  .text {
     font-size: 18px;
     line-height: 27px;
     letter-spacing: 0.25px;
@@ -24,5 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    left: 85.9%;
   }
   
