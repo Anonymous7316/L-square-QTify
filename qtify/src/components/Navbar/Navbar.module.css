@@ -1,0 +1,12 @@
+:root{
+  --color-primary: #34C94B;
+}
+.navbar {
+    background-color: var(--color-primary);
+    height: 74px;
+    padding: 0px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
