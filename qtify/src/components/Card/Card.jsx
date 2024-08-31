@@ -3,7 +3,7 @@ import Chip from '@mui/material/Chip';
 import { Box } from "@mui/system";
 import styles from "./Card.module.css";
 
-export default function Card({title,follows,image}){
+export default function Card({title,likes,follows,image}){
     return(
         <Box className={styles.card}>
             <div className={styles.cardDetails}>
@@ -11,7 +11,7 @@ export default function Card({title,follows,image}){
                     <img className={styles.img} src={image} alt="AlbumImage"/>
                 </div>
                 <div className={styles.follows}>
-                    <Chip className={styles.chip} label={`${follows} Follows`} />
+                    <Chip className={styles.chip} label={follows?`${follows} Follows`:`${likes} Likes`} />
                 </div>
             </div>
             <div>
