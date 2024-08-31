@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import {BrowserRouter} from 'react-router-dom';
@@ -8,27 +8,32 @@ import Section from './components/Section/Section';
 import axios from "axios";
 
 function App() {
-  const [data,setData] = useState([]);
+  const topData = useRef([]);
+  const newData = useRef([]);
   
   useEffect(()=>{
     async function getAlbumsData(){
       try{
-        const res = await axios.get('https://qtify-backend-labs.crio.do/albums/top');
-        setData(res.data);
+        const resTop = axios.get('https://qtify-backend-labs.crio.do/albums/top');
+        const resNew = axios.get('https://qtify-backend-labs.crio.do/albums/new');
+        const res = await Promise.allSettled([resTop,resNew]);
+        topData.current = res[0].value.data;
+        newData.current = res[1].value.data;
       }
       catch(e){
         console.log(e);
       }
     }
     getAlbumsData()
-  },[data]);
+  },[topData.current,newData.current]);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar/>
+        <Navbar/> 
         <Hero/>
-        <Section albumData={data} title={"Top Albums"}/>
+        <Section albumData={topData.current} title={"Top Albums"}/>
+        <Section albumData={newData.current} title={"New Albums"}/>
       </BrowserRouter>
     </div>
   );
