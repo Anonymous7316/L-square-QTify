@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import Card from "../Card/Card";
 
 export default function Section({albumData,title}){
-    const [showAll, setShowAll] = useState(false);
+    const [showAll, setShowAll] = useState(true);
     function handleClick(){
         setShowAll((prevState)=>!prevState);
     }
