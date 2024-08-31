@@ -15,7 +15,7 @@ export default function Section({albumData,title}){
             <Box className={styles.section}>
                 <div className={styles.topBar}>
                     <p>{title}</p>
-                    <p className={styles.showBtn} onClick={handleClick}>{showAll?"Collapse":"Show All"}</p>
+                    <p className={styles.showBtn} onClick={handleClick}>{showAll?"Show All":"Collapse"}</p>
                 </div>
                 {
                     showAll?
